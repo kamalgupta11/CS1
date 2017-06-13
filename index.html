@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Model Testing</title>
+	
+	<script src="jquery.js"></script>
+	<script src="underscore.js"></script>
+	<script src="backbone.js"></script>
+
+<script>
+	
+	var TestModel = Backbone.Model.extend({});
+
+var testModel = new TestModel({
+
+	description: "pick the milk item",
+		status : "Incomplete",
+		id: "1",
+
+});
+
+//console.log(testModel);
+	// var TestView = Backbone.View.extend({
+	// 	render:function(){
+	// 		var html1= '<h3>' + this.model.get('id');
+	// 		//$('#div1').html("hi");
+
+	// 		$(this.el).html(html1);
+	// 		$('#divID').html(html1);
+
+	// 		console.log(this.el);
+
+	// 	}
+	
+	// });
+
+
+	// var testView = new TestView({model:testModel});
+	// testView.render();
+
+
+
+
+
+
+// var TestView = Backbone.View.extend({
+// 		tagName: "article",
+// 		id : "todo-view",
+// 		claseName: 'todo',
+
+// 		render: function(){
+// 			var html= '<h3>' + this.model.get('description');
+// 			this.$el.html(html);
+
+// 			console.log(this.el);
+// 		}
+		
+// 	});
+
+// 	var testView = new TestView({model:testModel});
+// 	testView.render();
+
+
+
+
+var TestView = Backbone.View.extend({
+		tagName: "article",
+		id : "todo-view",
+		claseName: 'todo',
+
+		template: _.template('<h3><%= description %></h3>'),
+
+		render: function(){
+			console.log(this.template);
+			var attributes = this.model.toJSON();
+			console.log(attributes);
+			this.$el.html(this.template(attributes));
+			//var html= '<h3>' + this.model.get('description');
+			//this.$el.html(html);
+
+			console.log(this.el);
+		}
+		
+	});
+
+	var testView = new TestView({model:testModel});
+	testView.render();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+</head>
+<body>
+<h1> Testing is going fine for models </h1>
+<div id="divID">Hello</div>
+</body>
+</html>
+
+
